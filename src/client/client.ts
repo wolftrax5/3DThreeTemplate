@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 const scene = new THREE.Scene()
-
+scene.background = new THREE.Color(0xFFFFFF)
 const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -25,7 +25,7 @@ const material = new THREE.MeshBasicMaterial({
 
 const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
-
+/**** common function to update the canvas size */
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
@@ -33,7 +33,7 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight)
     render()
 }
-
+/***************/
 function animate() {
     requestAnimationFrame(animate)
 
