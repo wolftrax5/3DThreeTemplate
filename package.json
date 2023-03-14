@@ -1,0 +1,26 @@
+{
+  "name": "threexample",
+  "version": "0.0.0",
+  "description": "Example to know about typescript & tree.js lib",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --config ./src/client/webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "three.js"
+  ],
+  "author": "Alejandro Medina Robles",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/three": "^0.149.0",
+    "three": "^0.150.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  }
+}
