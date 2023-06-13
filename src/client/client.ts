@@ -24,9 +24,9 @@ new OrbitControls(camera, renderer.domElement)
 
 const boxGeometry = new THREE.BoxGeometry()
 const sphereGeometry = new THREE.SphereGeometry()
-// const icosahedronGeometry = new THREE.IcosahedronGeometry()
+const icosahedronGeometry = new THREE.IcosahedronGeometry()
 
-//console.log(boxGeometry)
+console.log(boxGeometry)
 
 const material = new THREE.MeshBasicMaterial({
     color: 0x00ff00,
@@ -34,15 +34,15 @@ const material = new THREE.MeshBasicMaterial({
 })
 
 const cube = new THREE.Mesh(boxGeometry, material)
-//cube.position.x = 5
+cube.position.x = 5
 scene.add(cube)
 
 const sphere = new THREE.Mesh(sphereGeometry, material)
 sphere.position.x = -5
 scene.add(sphere)
 
-// const icosahedron = new THREE.Mesh(icosahedronGeometry, material)
-// scene.add(icosahedron)
+ const icosahedron = new THREE.Mesh(icosahedronGeometry, material)
+scene.add(icosahedron)
 
 window.addEventListener('resize', onWindowResize, false)
 function onWindowResize() {
@@ -141,28 +141,28 @@ function regenerateSphereGeometry() {
     sphere.geometry = newGeometry
 }
 
-// const icosahedronData = {
-//     radius: 1,
-//     detail: 0,
-// }
-// const icosahedronFolder = gui.addFolder('Icosahedron')
-// const icosahedronPropertiesFolder = icosahedronFolder.addFolder('Properties')
-// icosahedronPropertiesFolder
-//     .add(icosahedronData, 'radius', 0.1, 10)
-//     .onChange(regenerateIcosahedronGeometry)
-// icosahedronPropertiesFolder
-//     .add(icosahedronData, 'detail', 0, 5)
-//     .step(1)
-//     .onChange(regenerateIcosahedronGeometry)
+const icosahedronData = {
+    radius: 1,
+    detail: 0,
+}
+const icosahedronFolder = gui.addFolder('Icosahedron')
+const icosahedronPropertiesFolder = icosahedronFolder.addFolder('Properties')
+icosahedronPropertiesFolder
+    .add(icosahedronData, 'radius', 0.1, 10)
+    .onChange(regenerateIcosahedronGeometry)
+icosahedronPropertiesFolder
+    .add(icosahedronData, 'detail', 0, 5)
+    .step(1)
+    .onChange(regenerateIcosahedronGeometry)
 
-// function regenerateIcosahedronGeometry() {
-//     const newGeometry = new THREE.IcosahedronGeometry(
-//         icosahedronData.radius,
-//         icosahedronData.detail
-//     )
-//     icosahedron.geometry.dispose()
-//     icosahedron.geometry = newGeometry
-// }
+function regenerateIcosahedronGeometry() {
+    const newGeometry = new THREE.IcosahedronGeometry(
+        icosahedronData.radius,
+        icosahedronData.detail
+    )
+    icosahedron.geometry.dispose()
+    icosahedron.geometry = newGeometry
+}
 
 const debug = document.getElementById('debug1') as HTMLDivElement
 
